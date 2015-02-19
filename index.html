@@ -1,0 +1,109 @@
+<html>
+﻿<head>
+<style>
+
+h2 {
+margin:0px;
+padding:0px;
+}
+
+#stages {
+max-width:820px;
+margin:0 auto;
+}
+
+#how-many {
+max-width:820px;
+margin:0 auto;
+text-align:center;
+}
+
+#answer {
+max-width:820px;
+margin:0 auto;
+text-align:center;
+margin-top:10px;
+}
+#my-answer {
+font-size:20px;
+width:120px;
+height:40px;
+text-align:center;
+}
+
+#re {
+margin-top:70px;
+width:440px;
+height:140px;
+background-color:green;
+color:white;
+font-size:40px;
+-webkit-border-radius: 6px;
+-moz-border-radius:6px;
+border-radius: 6px;
+border:0px;
+}
+</style>
+</head>
+<body>
+<div id="how-many"></div>
+<div id="stages"></div>
+<div id="answer" style="clear:both;margin-top:30px;"><form><input type="button" id="re" value="შემდეგი" onclick="javascript:location.reload();"></form></div>
+
+
+<script type="text/javascript">
+function getcolor() {
+
+		var colors=[["red","წითელი"],["green","მწვანე"],["blue","ლურჯი"],["black","შავი"],["yellow","ყვითელი"],["orange","სტაფილოსფერი"],["gray","ნაცრისფერი"]];
+		var randomcolor_rgb = colors[Math.floor(Math.random()*colors.length)][0];
+		var randomcolor_txt = colors[Math.floor(Math.random()*colors.length)][1];
+	
+		return [randomcolor_rgb,randomcolor_txt];
+	
+	}
+ 
+ 
+
+function randomobject(quantity) {
+
+	
+	var totalblocks=[];
+	
+		for (var i=0;i<quantity;i++) {
+		
+			totalblocks.push("object_"+i);
+		
+		}
+		
+		
+	var stages=document.getElementById("stages");
+	
+	
+	for (var e=0;e<totalblocks.length;e++) {
+	
+		var gecolor=getcolor();
+		var incol=gecolor[0];
+		
+		stages.innerHTML=stages.innerHTML+"<div style='float:left;margin:3px;width:100px;height:100px;background:"+incol+";'></div>";
+	
+	}
+	
+var gecolor=getcolor();
+var incol=gecolor[1];	
+ 
+var howmany=document.getElementById("how-many");	
+howmany.innerHTML="სულ რამდენი <h2>" + incol + "</h2> კვადრატი არის გამოსახული?"
+}
+ 
+
+ 
+
+ 
+randomobject(49);
+
+
+
+</script>
+
+</body>
+</html>
